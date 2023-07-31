@@ -27,7 +27,7 @@ class MyAPP extends StatelessWidget {
         GetPage(name: routes.splash, page: ()=>splash_screen()),
 
       ],
-      home: Scaffold(),
+
     );
   }
 }
