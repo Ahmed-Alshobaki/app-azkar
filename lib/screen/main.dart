@@ -1,36 +1,31 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
+import '../contral/homecontral.dart';
 import '../core/resources/manager/font.dart';
 import '../core/resources/manager/manager_colors.dart';
 import '../core/resources/manager/manager_fontsizes.dart';
 import '../core/resources/manager/manager_fontweight.dart';
 import '../core/resources/manager/manager_strings.dart';
 
-class mainazkar extends StatefulWidget {
+class mainazkar extends StatelessWidget {
   const mainazkar({super.key});
 
   @override
-  State<mainazkar> createState() => _mainazkarState();
-}
-
-class _mainazkarState extends State<mainazkar> {
-  @override
   Widget build(BuildContext context) {
     return Scaffold(
-        floatingActionButton: FloatingActionButton(
-          onPressed: () {},
-          child: Icon(Icons.add),
+        floatingActionButton: GetBuilder<contral>(
+          init: contral(),
+          builder: (controller) => FloatingActionButton(
+              backgroundColor: Colors.black,
+              child: Icon(Icons.add, color: Colors.white),
+              onPressed: () {
+                controller.plass();
+              }),
         ),
         extendBodyBehindAppBar: true,
         appBar: AppBar(
-          actions: [
-            IconButton(
-              onPressed: () {},
-              icon: Icon(Icons.info),
-              color: Colors.white,
-              iconSize: 28,
-            ),
-          ],
+          actions: [],
           title: const Text(
             Manager_string.S_Azkar,
             style: TextStyle(
@@ -52,17 +47,44 @@ class _mainazkarState extends State<mainazkar> {
             ),
             Align(
               child: Container(
-                decoration: BoxDecoration(
-                    color: Colors.black45,
-                  borderRadius: BorderRadius.circular(5)
-                ),
-                alignment: Alignment.center,
-                height: 50,
-                width: 52,
-                child: Text("1",style: TextStyle(fontSize: Manager_fontsizes.siz33,fontFamily: font.font_ReemKufiFun,color: Colors.white),),
-              ),
-            )
+                  decoration: BoxDecoration(
+                      color: Colors.black45,
+                      borderRadius: BorderRadius.circular(5)),
+                  alignment: Alignment.center,
+                  height: 50,
+                  width: 50,
+                  child: Center(
+                    child: GetBuilder<contral>(
+                      init: contral(),
+                      builder: (controller) => Text(
+                        "${controller.number}",
+                        style: TextStyle(
+                            fontSize: 30,
+                            fontWeight: Manager_fontweight.font_w600,
+                            color: Colors.white),
+                      ),
+                    ),
+                  )),
+            ),
+            GetBuilder<contral>(
+                  init: contral(),
+                  builder: (controller) => InkWell(
+                    onTap: (){
 
+                      print("object");
+                    },
+                    child: Container(
+                        alignment: AlignmentDirectional.bottomStart,
+                        margin: EdgeInsetsDirectional.only(bottom: 14,start: 14),
+                        child: FloatingActionButton(
+                          child: Icon(Icons.remove,color: Colors.white,),
+                          backgroundColor: Colors.black,
+                          onPressed: () {
+                            controller.mains();
+                          },
+                        )),
+
+                ))
           ],
         ));
   }
