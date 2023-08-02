@@ -35,7 +35,7 @@ class MyAPP extends StatelessWidget {
       getPages: [
         GetPage(name: routes.main, page: ()=>mainazkar()),
         GetPage(name: routes.splash, page: ()=>splash_screen()),
-
+      //zon
 
       ],
 
