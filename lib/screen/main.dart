@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:zon/screen/test1.dart';
 
+import '../Localization/Localizationcontral.dart';
 import '../contral/homecontral.dart';
 import '../core/resources/manager/font.dart';
 import '../core/resources/manager/manager_colors.dart';
@@ -11,8 +12,9 @@ import '../core/resources/manager/manager_strings.dart';
 
 class mainazkar extends StatelessWidget {
   mainazkar({super.key});
+  Localizationcontral1 Localizationcontral12 =Get.find();
+  contral controller = Get.put(contral(), permanent: true);
 
-  contral controller = Get.put(contral(),permanent: true);
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +31,7 @@ class mainazkar extends StatelessWidget {
           extendBodyBehindAppBar: true,
           appBar: AppBar(
             actions: [],
-            title:  Text(
+            title: Text(
               "1".tr,
               style: TextStyle(
                   fontSize: Manager_fontsizes.siz33,
@@ -42,7 +44,7 @@ class mainazkar extends StatelessWidget {
           body: Stack(
             children: [
               Container(
-                decoration: const BoxDecoration(
+                decoration:  BoxDecoration(
                   image: DecorationImage(
                       image: AssetImage("lib/core/resources/images/img.png"),
                       fit: BoxFit.cover),
@@ -58,7 +60,7 @@ class mainazkar extends StatelessWidget {
                     width: 50,
                     child: Center(
                       child: GetBuilder<contral>(
-                          init:contral() ,
+                        init: contral(),
                         builder: (controller) => Text(
                           "${controller.number}",
                           style: TextStyle(
@@ -88,25 +90,21 @@ class mainazkar extends StatelessWidget {
                       },
                     )),
               ),
-              InkWell(
-                onTap: () {
-                  print("object");
-                },
-                child: Container(
-                    alignment: AlignmentDirectional.bottomStart,
-                    margin: EdgeInsetsDirectional.only(bottom: 150, start: 14),
-                    child: FloatingActionButton(
-                      child: Icon(
-                        Icons.arrow_back_ios_new,
-                        color: Colors.white,
-                      ),
-                      backgroundColor: Colors.black,
-                      onPressed: () {
-                        Get.off(()=>test1());
-
-                      },
-                    )),
+              Container(
+                margin: EdgeInsetsDirectional.only(top: 45,bottom: 25),
+                color: Colors.black,
+                child: MaterialButton(onPressed: () {
+                  Localizationcontral12.chaeng("ar");
+                },child: Text("ar",style: TextStyle(color: Colors.white),),),
               ),
+              Container(
+                margin: EdgeInsetsDirectional.only(top: 100,bottom: 25),
+                color: Colors.black,
+                child: MaterialButton(onPressed: () {
+                  Localizationcontral12.chaeng("en");
+                },child: Text("en",style: TextStyle(color: Colors.white)),),
+              )
+
             ],
           )),
     );

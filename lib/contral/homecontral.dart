@@ -16,7 +16,7 @@ class contral extends GetxController{
   }
     void s3 ()async{
       Future.delayed(Duration(seconds: 3),(){
-        Get.to(()=>mainazkar());
+        Get.off(()=>mainazkar());
       });
     }
 }
