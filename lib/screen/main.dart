@@ -29,8 +29,8 @@ class mainazkar extends StatelessWidget {
           extendBodyBehindAppBar: true,
           appBar: AppBar(
             actions: [],
-            title: const Text(
-              Manager_string.S_Azkar,
+            title:  Text(
+              "1".tr,
               style: TextStyle(
                   fontSize: Manager_fontsizes.siz33,
                   fontWeight: Manager_fontweight.font_w600,

@@ -7,6 +7,7 @@ import 'package:zon/screen/main.dart';
 import 'package:zon/screen/splash_screen.dart';
 
 
+import 'Localization/Localization.dart';
 import 'screen/test2.dart';
 
 
@@ -20,7 +21,9 @@ class MyAPP extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      initialRoute: "/zon",
+      initialRoute:  routes.splash,
+      locale: Get.deviceLocale,
+      translations: Localizationsz(),
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         useMaterial3: true ,
@@ -28,7 +31,7 @@ class MyAPP extends StatelessWidget {
       getPages: [
         GetPage(name: routes.main, page: ()=>mainazkar()),
         GetPage(name: routes.splash, page: ()=>splash_screen()),
-        GetPage(name: "/zon", page: ()=>test2())
+
 
       ],
 

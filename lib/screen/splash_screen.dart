@@ -6,10 +6,19 @@ import 'package:zon/core/resources/manager/manager_strings.dart';
 
 import 'package:zon/routes/routes.dart';
 
+import '../contral/homecontral.dart';
 import '../core/constant/constant.dart';
 import '../core/resources/manager/manager_colors.dart';
 import '../core/resources/manager/manager_fontsizes.dart';
 import '../core/resources/manager/manager_fontweight.dart';
+// class  extends StatelessWidget {
+//   const ({super.key});
+//
+//   @override
+//   Widget build(BuildContext context) {
+//     return const Placeholder();
+//   }
+// }
 
 class splash_screen extends StatefulWidget {
   const splash_screen({super.key});
@@ -19,25 +28,16 @@ class splash_screen extends StatefulWidget {
 }
 
 class _splash_screenState extends State<splash_screen> {
+  contral contral1 = Get.put(contral());
   @override
   void initState() {
     // TODO: implement initState
+    contral1.s3();
     super.initState();
-
-    // Navigator.pushReplacementNamed(context, routes.bioScreen);}
-    Future.delayed(const Duration(seconds: constant.second3), () {
-      Get.offNamed(routes.main);
-    });
   }
-
-  @override
-  void dispose() {
-    // TODO: implement dispose
-    super.dispose();
-  }
-
   @override
   Widget build(BuildContext context) {
+    // TODO: implement build
     return Scaffold(
       body: Container(
         decoration:  BoxDecoration(
@@ -52,14 +52,14 @@ class _splash_screenState extends State<splash_screen> {
           ),
 
         ),
-        child: const Center(
+        child:  Center(
 
           child: Text(
-            Manager_string.S_Azkar,
+            "1".tr,
             style: TextStyle(fontSize: Manager_fontsizes.siz33,
                 fontWeight: Manager_fontweight.font_w600,
                 fontFamily
-                :font.font_ReemKufiFun),
+                    :font.font_ReemKufiFun),
           ),
         ),
       ),
